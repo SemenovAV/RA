@@ -7,9 +7,8 @@ class SearchBox extends React.Component {
         <input
           type="text"
           placeholder="Поиск по названию или автору"
-          ref={el => this.element = el}
           value={this.props.value}
-          onChange={()=> this.props.filterBooks(this.element.value)}
+          onChange={(event)=> this.props.filterBooks(event.target.value)}
         />
       );
     }
