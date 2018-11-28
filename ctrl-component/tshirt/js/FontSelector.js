@@ -1,4 +1,5 @@
 const FontSelector = ({fonts, selectedFont, onSelect}) => {
+ const handleClick = (selectedFont) => {onSelect(selectedFont)}
   return <div className="font-picker">
     {fonts.map(font => {
       return (<div className="grid center font-item">
@@ -7,14 +8,8 @@ const FontSelector = ({fonts, selectedFont, onSelect}) => {
           name="font"
           value={font.name}
           id={font.name}
-          onClick={event => {
-            onSelect(
-              fonts.find(
-                item => item.name === event.target.value,
-              ),
-            )
-          }
-          }/>
+          onClick = {handleClick.bind(null, font)}
+        />
         <label htmlFor={font.name} className="grid-1">
           <PictureFont path={font.path} text={font.name.slice(0, 3)}/>
         </label>
