@@ -27,3 +27,25 @@ const Profile = props => {
     </div>
   );
 };
+
+Profile.defaultProps = {
+   img: './images/profile.jpg',
+  birthday: '1988-03-21',
+
+
+}
+Profile.propTypes = {
+  url: (props, propName, componentName) => {
+    if (!/https:\/\/vk.com\/(id[0-9]+|[A-Za-z0-9_-]+)/.test(props[propName])) {
+      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Expecting something like 'https://vk.com/...'. Validation failed.`);
+    }
+  },
+  birthday: (props, propName, componentName) => {
+    if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(props[propName])) {
+      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Expecting something like 'YYYY-MM-DD'. Validation failed.`);
+    }else if(Date.parse(props)<Date.now()){
+      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Date of birth cannot be greater than today's date. Validation failed.`);
+
+    }
+  },
+}
