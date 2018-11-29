@@ -9,3 +9,17 @@ const DateInput = props => {
     </div>
   )
 };
+const today = new Date();
+
+DateInput.defaultProps ={
+  value: `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
+}
+ DateInput.propTypes = {
+   label: PropTypes.string,
+   name: PropTypes.string,
+   required: PropTypes.bool,
+   onChange: PropTypes.func,
+   value: PropTypes.string,
+ }
+
+
