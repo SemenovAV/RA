@@ -1,22 +1,25 @@
 class ProgressBar extends React.Component {
   constructor (props) {
     super(props)
-    this.state = props
+    this.state = {
+      total:0,
+      completed: 0,
+    }
   }
 
   calculate ({total, completed}) {
-    this.percent = this.percent || total * 0.01
-    this.completedPercent = Math.round(completed / this.percent)
-    this.endAngle = Math.PI * 2 * 0.01 * this.completedPercent
+    const percent =  total * 0.01
+    this.completedPercent = Math.round(completed / percent)
+    this.endAngle = Math.PI * 2 * 0.01 * Math.round(completed / percent)
   }
 
   up () {
-    this.domElement.width = this.domElement.getBoundingClientRect().width * 1.2
-    this.domElement.height = this.domElement.getBoundingClientRect().height *
+    this.canvasRef.width = this.canvasRef.getBoundingClientRect().width * 1.2
+    this.canvasRef.height = this.canvasRef.getBoundingClientRect().height *
       1.2
-    const x = this.domElement.width / 2
-    const y = this.domElement.height / 2
-    const ctx = this.domElement.getContext('2d')
+    const x = this.canvasRef.width / 2
+    const y = this.canvasRef.height / 2
+    const ctx = this.canvasRef.getContext('2d')
     ctx.font = 'bold 30px sans-serif'
     ctx.beginPath()
     ctx.textAlign = 'center'
@@ -45,7 +48,7 @@ class ProgressBar extends React.Component {
   render () {
     return (
       <canvas id="progressCanvas" className="progress"
-              ref={e => this.domElement = e}/>
+              ref={node => this.canvasRef = node}/>
     )
   }
 
