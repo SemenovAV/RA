@@ -1,17 +1,5 @@
 'use strict';
 
 const List = props => {
-    return props.list.map(item => {
-        switch (item.type) {
-            case 'video':
-                return (
-                    <Video {...item} />
-                );
+    return props.list.map(item => <GetAttention {...item}/>)};
 
-            case 'article':
-                return (
-                    <Article {...item} />
-                );
-        }
-    });
-};
