@@ -15,11 +15,10 @@ class App extends React.Component {
     }
 
     render() {
+        console.log(this.state.list)
         return (
             <div id="app">
-                <MonthTable list={this.state.list} />
-                <YearTable list={this.state.list} />
-                <SortTable list={this.state.list} />
+                <Aggregation  list={this.state.list}/>
             </div>
         );
     }
