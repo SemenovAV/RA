@@ -25,9 +25,13 @@
   <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
+
+  <script type="text/babel" src="./js/Nav.js"></script>
   <script type="text/babel" src="./js/Current.js"></script>
   <script type="text/babel" src="./js/Archive.js"></script>
   <script type="text/babel" src="./js/App.js"></script>
+  <script type="text/babel" src="js/withFether.js"></script>
+
 
   <script type="text/babel">
     const ReactRouter = window.ReactRouterDOM;
@@ -38,8 +42,8 @@
     const Switch = ReactRouter.Switch;
 
     ReactDOM.render(
-      <App/>,
-      document.getElementById('root')
+        <App/>,
+        document.getElementById('root')
     );
   </script>
 </body>
