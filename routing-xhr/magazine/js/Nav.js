@@ -8,9 +8,9 @@ const Nav = () => {
       <Switch>
         <Route exact path="/:full(index.html)?" component={Homepage}/>
         <Route path="/article/:id([0-9]+)" component={ArticlePage}/>
-        <Route exact path="/subscribtion" component={SubscribtionPage}>
+        <Route exact path="/subscribtion" component={SubscribtionPage}/>
+        <Route exact path="*" component={Homepage}/>
 
-        </Route>
       </Switch>
     </div>
   )
