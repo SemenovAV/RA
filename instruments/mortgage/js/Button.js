@@ -1,3 +1,6 @@
-const Button = () => (
-  <button>Отправить</button>
-);
+const Button = () => {
+  const {Button} = antd
+  return (
+    <Button>Отправить</Button>
+  );
+}
